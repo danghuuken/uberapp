@@ -1,0 +1,19 @@
+{%extends 'base.html' %}
+
+{%block title%} Block Archive {%endblock%}
+
+{% block content%}
+
+	<hi> My Blog Archive </hi>
+	{% for post in post%}
+	<div class = "post">
+	<p>{{post.description}}</p>
+	<p>
+		Posted on
+		<time datetime="{{post.created|date:"c"}}">
+		{{post.craeted|date}}
+		</time>
+	</p>
+	</div>
+	{% endfor %}
+{% endblock %}

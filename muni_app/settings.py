@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'source'
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,10 +59,15 @@ WSGI_APPLICATION = 'muni_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-   }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mydb',
+        'USER': 'kdang',
+        'PASSWORD': 'kendang',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -83,8 +90,9 @@ STATIC_URL = '/static/'
 
 import dj_database_url 
 
-#Parse database configurations from $DATABASE_URL
-DATABASES['default'] = dj_database_url.config()
+if 'DATABASE_URL' in os.environ:
+    #Parse database configurations from $DATABASE_URL
+    DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARD_PROTO','https')
 
@@ -101,3 +109,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = {
     os.path.join(BASE_DIR,'static')
 }
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR,"templates")
+)
