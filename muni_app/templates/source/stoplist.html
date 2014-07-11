@@ -1,0 +1,15 @@
+{%extends 'base.html' %}
+
+{%block title%} Route Lists {%endblock%}
+
+{% block content%}
+
+	<h1>{{route_title}} Route List </h1>
+	<div>
+	<p>
+		{% for stop in all_stops %}
+		<p> {{ stop }}</p>
+		{% endfor %}
+	</p>
+	</div>
+{% endblock %}

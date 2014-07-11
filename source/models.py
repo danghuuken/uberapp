@@ -19,3 +19,11 @@ class Post(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('blog.views.post',args=[self.slug])
+
+
+class Routes(models.Model):
+	tag = models.CharField(max_length=255)
+	title = models.CharField(max_length=255)
+
+	def __unicode__(self):
+		return u'%s' % self.title

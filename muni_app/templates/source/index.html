@@ -1,19 +1,14 @@
 {%extends 'base.html' %}
 
-{%block title%} Block Archive {%endblock%}
+{%block title%} Muni Index {%endblock%}
 
 {% block content%}
 
-	<hi> My Blog Archive </hi>
-	{% for post in post%}
-	<div class = "post">
-	<p>{{post.description}}</p>
+	<hi>{{route_title}} Departure Time </hi>
+	<div>
+	<p>{{stop_title}}</p>
 	<p>
-		Posted on
-		<time datetime="{{post.created|date:"c"}}">
-		{{post.craeted|date}}
-		</time>
+		<p> {{ departure_times }}</p>
 	</p>
 	</div>
-	{% endfor %}
 {% endblock %}
