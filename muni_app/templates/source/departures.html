@@ -8,11 +8,14 @@
 	<h1>{{route_title}} Departure List at {{station}}</h1>
 	<div>
 	<p>
-		{% for i in length%}
-			<p>{{destinations|lookup:i}}</p>
-			<p>{{predictions|lookup:i}}</p>
-			
-		{% endfor %}
+		{% if length|length == 0 %}
+				<p>No Predictions Avaiable at this time.</p>
+		{% else %}
+			{% for i in length%}
+				<p>{{destinations|lookup:i}}</p>
+				<p>Departure times : {{predictions|lookup:i}}</p>
+			{% endfor %}
+		{% endif %}
 	</p>
 	</div>
 {% endblock %}
