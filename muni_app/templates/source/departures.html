@@ -1,0 +1,18 @@
+{%extends 'base.html' %}
+{% load template_tags %}
+
+{%block title%} Route Departure Times {%endblock%}
+
+{% block content%}
+
+	<h1>{{route_title}} Departure List at {{station}}</h1>
+	<div>
+	<p>
+		{% for i in length%}
+			<p>{{destinations|lookup:i}}</p>
+			<p>{{predictions|lookup:i}}</p>
+			
+		{% endfor %}
+	</p>
+	</div>
+{% endblock %}

@@ -1,4 +1,5 @@
 {%extends 'base.html' %}
+{% load template_tags %}
 
 {%block title%} Route Lists {%endblock%}
 
@@ -7,8 +8,8 @@
 	<h1>{{route_title}} Route List </h1>
 	<div>
 	<p>
-		{% for stop in all_stops %}
-		<p> {{ stop }}</p>
+		{% for stop , tag in stop_dict.items %}		
+			<p> <a href="{% url 'stop_departure' %}?tag={{tag}}"> {{ stop }} </a></p>
 		{% endfor %}
 	</p>
 	</div>

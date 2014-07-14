@@ -1,14 +1,14 @@
 {%extends 'base.html' %}
+{% load template_tags %}
 
 {%block title%} Muni Index {%endblock%}
 
 {% block content%}
 
-	<hi>{{route_title}} Departure Time </hi>
+	<hi>Muni Route List </hi>
 	<div>
-	<p>{{stop_title}}</p>
-	<p>
-		<p> {{ departure_times }}</p>
-	</p>
+	{% for tags in sorted_tags%}
+		<p> <a href="{% url 'stop_list' %}?tag={{tags}}"> {{all_routes|lookup:tags}} </a></p>
+	{% endfor %}
 	</div>
 {% endblock %}
