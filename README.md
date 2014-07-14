@@ -19,7 +19,7 @@
 ## Link to code 
  https://github.com/danghuuken/uberapp
  
- ## Link to hosted code
+## Link to hosted code
  serene-tor-9541.herokuapp.com
 
 ## Link to Resume 
